@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // "label": "preRun",
+            "type": "shell",
+            "linux": {
+                "command": "clear  &  start openocd -f  interface/ftdi/esp32_devkitj_v1.cfg  -f board/esp-wroom-32.cfg"
+            },
+            "windows": {
+                "command": "clear  &  start openocd -f  interface/ftdi/esp32_devkitj_v1.cfg  -f board/esp-wroom-32.cfg"
+            },
+        }
+    ]
+}
