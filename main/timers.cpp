@@ -10,56 +10,49 @@
 #include "esp_log.h"
 #include <stdio.h>
 #include <assert.h>
-
+#include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <iostream>
 #include "gpio.h"
+#include "queues.h"
 //  ******************************* mian  _sectio  ****************
-
 TaskHandle_t th1 = NULL;
-
 TaskHandle_t th2 = NULL;
-
 #ifdef __cplusplus
 extern "C"
 {
 #endif
     void app_main()
     {
-
         // void *start = (void *)heap_caps_malloc(sizeof(BaseType_t), (2 || 1));
         // if (start != NULL)
         // start = th1;
-
-        if (xTaskCreate(&taskFunc,
-                        "led task2", // 1990
-                        2048, NULL,
-                        1, &th1) != pdPASS)
-            ESP_LOGE("", "failed in thread");
-
-        if (xTaskCreate(
-
-                &taskFunction,
-                "led task1", 2048, NULL,
-                1, &th2) != pdPASS)
-            ESP_LOGE("", "failed");
-
-        vTaskDelay(pdMS_TO_TICKS(2000));
-
-        if (th1 != NULL)
+        // &taskFunction,
+        // vTaskDelete(th1);
+        qh = xQueueCreateStatic(
+            QUEUE_DEPTH,
+            sizeof(s_udp_socket),
+            queueArray,
+            &qobj);
+        if (qh == nullptr)
         {
-
-            vTaskDelete(th1);
-            th1 = NULL;
+            ESP_LOGE("queue object", "couldnt have dempry to crete  one");
+            return;
         }
-        if (th2 != NULL)
-        {
-            vTaskDelete(th2);
-            th2 = NULL;
-        }
+        // checking the kernel  queue
+        queuedata.name = (char *)heap_caps_malloc(sizeof(char) * 50, MALLOC_CAP_8BIT);
+        strcpy(queuedata.name, "All my friends are heathens");
+        xQueueSendToBack(
+            qh,
+            &queuedata, (TickType_t)2); //  return s  a bBasetype_t  object
 
-        ESP_LOGI("taskFunc ", "%d\t  %d", uxTaskGetStackHighWaterMark(th1), uxTaskGetStackHighWaterMark(th2));
+        s_udp_socket *datapointer = (s_udp_socket *)(queueArray);
+
+        if (datapointer != NULL)
+            ESP_LOGI("from  queue", "%s\n", (*datapointer).name);
+
+        heap_caps_free(queuedata.name);
     }
 #ifdef __cplusplus
 }

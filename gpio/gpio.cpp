@@ -2,6 +2,32 @@
 #include "tim.h"
 
 #include "gpio.h"
+void setupFunctions()
+{
+
+    if (xTaskCreate(&taskFunc,
+                    "led task2", // 1990
+                    2048, NULL,
+                    1, &th1) != pdPASS)
+        ESP_LOGE("", "failed in thread");
+
+    if (xTaskCreate(&taskFunction,
+                    "led task1",
+                    2048, NULL,
+                    1, &th2) != pdPASS)
+        ESP_LOGE("", "failed");
+    vTaskDelay(pdMS_TO_TICKS(2000));
+    if (th1 != NULL)
+    {
+        th1 = NULL;
+    }
+    if (th2 != NULL)
+    {
+        vTaskDelete(th2);
+        th2 = NULL;
+    }
+    ESP_LOGI("taskFunc ", "%d\t  %d", uxTaskGetStackHighWaterMark(th1), uxTaskGetStackHighWaterMark(th2));
+}
 
 void taskFunction(void *args)
 {

@@ -40,6 +40,8 @@ static StaticTask_t tcb1;
 extern TaskHandle_t th1;
 extern TaskHandle_t th2;
 
+extern void setupFunction();
+
 extern void
 taskFunc(void *);
 

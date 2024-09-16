@@ -16,7 +16,8 @@ extern gpio_num_t led_array[4];
 struct s_udp_socket
 {
     int socket;
-    int retries;
+    int retries;char *name;
+
 };
 
 extern TimerHandle_t xTimer;
