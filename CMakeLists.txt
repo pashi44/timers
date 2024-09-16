@@ -13,8 +13,10 @@ set(CMAKE_CXX_FLAGS_DEBUG "-O0  -g  -gdwarf-4")
 
 set(CMAKE_BUILD_TYPE "DEBUG")
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -w")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -W")
+set(CMAKE_C_FLAGS "-w")
+
+add_compile_options(CMAKE_C_FLAGS "-w")
+add_compile_options(CMAKE_CXX_FLAGS "-w")
 
 # set(CMAKE_CXX_COMPILER "/home/hadoop/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp-elf-g++")
 # set(CUSTOM_LINKER "/home/hadoop/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20240530/xtensa-esp-elf/bin/xtensa-esp-elf-ld")

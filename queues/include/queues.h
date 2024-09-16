@@ -13,4 +13,6 @@ static StaticQueue_t qobj;
 
 static QueueHandle_t qh;
 
+BaseType_t rc;
+
 #endif
