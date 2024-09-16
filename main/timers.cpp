@@ -76,6 +76,21 @@ extern "C"
                 (TickType_t)3);
             if (rc == pdPASS)
             {
+
+                s_udp_socket *pointertdata;
+                pointertdata = &rData;
+
+                ESP_LOGI("queue info ", "  address of rdata..name%p\n", (void *)&(rData));
+                ESP_LOGI("queue info ", "  address of rdata..name%p\n", (void *)&((rData).name));
+
+                ESP_LOGI("queue info ", "  address of rdata..name%c\n", *((rData).name));
+
+                ESP_LOGI("queue info ", "  address of rdata..name%c\n", *(((rData).name) + 4));
+                ESP_LOGI("queue info ", "  address of rdata..name%p\n", (void *)pointertdata->name);
+                // ESP_LOGI("queue info ", "  address of rdata..name%s\n", pointertdata);
+
+                ESP_LOGI("queue info ", "  address of rdata..name%p\n", (void *)(pointertdata->name + 3));
+
                 ESP_LOGI("queue info ", "%s\n", rData.name);
             }
             else
