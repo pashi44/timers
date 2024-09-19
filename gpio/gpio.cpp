@@ -42,6 +42,9 @@ void taskFunction(void *args)
         gpio_set_level(*(led_array), 0);
         vTaskDelay(pdMS_TO_TICKS(500));
     }
+    vTaskDelete(nullptr);
+
+    th2 = nullptr;
 }
 
 void taskFunc(void *args)
@@ -61,4 +64,6 @@ void taskFunc(void *args)
         // ESP_LOGI("from TaskFunc", "%s", "switching to  taskFunction  again \n");
         vTaskDelay(pdMS_TO_TICKS(400));
     }
+    vTaskDelete(nullptr);
+    th1 = nullptr;
 }

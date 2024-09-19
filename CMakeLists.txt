@@ -12,7 +12,7 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS_DEBUG "-O0  -g  -gdwarf-4")
 
 set(CMAKE_BUILD_TYPE "DEBUG")
-
+set(CMAKE_CXX_FLAGS "-W")
 set(CMAKE_C_FLAGS "-w")
 
 add_compile_options(CMAKE_C_FLAGS "-w")
