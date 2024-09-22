@@ -5,7 +5,7 @@
 #include "queues.h"
 class AlertLed
 {
-    TimerHandle_t timerHandle = NULL;
+    TimerHandle_t timerHandle;
     TickType_t period_ms;
     volatile bool state;
     volatile unsigned count;
@@ -17,7 +17,8 @@ public:
 
     void alert();
     void cancel();
-    void reset();
+    void reset(bool state);
+
     static void alertLed_cb(TimerHandle_t timerHandle);
 };
 #endif
