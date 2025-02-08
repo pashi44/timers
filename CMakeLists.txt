@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION 3.16)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(timers)
+project(pwmc)
 
 #
 set(CMAKE_C_STANDARD_REQUIRED ON)
