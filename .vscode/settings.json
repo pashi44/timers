@@ -1,3 +1,8 @@
 {
-    "idf.adapterTargetName": "esp32"
+    "idf.adapterTargetName": "esp32",
+    "files.associations": {
+        "cstdlib": "cpp",
+        "cstdint": "cpp",
+        "iostream": "cpp"
+    }
 }

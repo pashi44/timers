@@ -4,11 +4,19 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/hadoop/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos",
-                "/home/hadoop/esp-idf/components/freertos/FreeRTOS-Kernel/include"
+                "/home/hadoop/esp-idf/components/**",
+                "/home/hadoop/esp-idf/pwmc/**",
+                "/home/hadoop/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos",
+                "${workspaceFolder}/hardwaretimers/include",
+                "/home/hadoop/esp-idf/components/esp_driver_gptimer/include",
+                "/home/hadoop/esp-idf/components/esp_common/include",
+                "${workspaceFolder}/components/ledpwm/include",
+                "/home/hadoop/esp-idf/components/esp_driver_ledc/include",
+                "/home/hadoop/esp-idf/components/freertos/FreeRTOS-Kernel-SMP/include",
+                "/home/hadoop/esp-idf/components/freertos/config/include/freertos"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/clang",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-arm",
