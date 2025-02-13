@@ -13,7 +13,9 @@
                 "${workspaceFolder}/components/ledpwm/include",
                 "/home/hadoop/esp-idf/components/esp_driver_ledc/include",
                 "/home/hadoop/esp-idf/components/freertos/FreeRTOS-Kernel-SMP/include",
-                "/home/hadoop/esp-idf/components/freertos/config/include/freertos"
+                "/home/hadoop/esp-idf/components/freertos/config/include/freertos",
+                "${workspaceFolder}/components/pwm/include",
+                "/home/hadoop/esp-idf/components/hal/include/hal"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",

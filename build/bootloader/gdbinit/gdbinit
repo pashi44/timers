@@ -1,0 +1,2 @@
+source /home/hadoop/esp-idf/pwmc/build/bootloader/gdbinit/symbols
+source /home/hadoop/esp-idf/pwmc/build/bootloader/gdbinit/connect
